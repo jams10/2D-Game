@@ -11,6 +11,8 @@ public:
 	RectF( const Vec2& topLeft, float width, float height );
 	/* check collision */
 	bool IsOverlappingWith( const RectF& other ) const;
+	/* Collider */
+	static RectF FromCenter( const Vec2& center, float halfWidth, float halfHeight );
 public:
 	float left;
 	float right;
