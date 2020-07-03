@@ -12,7 +12,7 @@ public:
 	bool DoWallCollision( const RectF& walls );
 	void ReboundX();
 	void ReboundY();
-	RectF GetCollider() const;
+	RectF GetRect() const; // Collider
 private:
 	static constexpr float radius = 7.0f;
 	Vec2 pos;
