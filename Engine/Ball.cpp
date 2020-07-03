@@ -21,7 +21,7 @@ void Ball::Update( float dt )
 bool Ball::DoWallCollision( const RectF& walls )
 {
 	bool collided = false;
-	const RectF rect = GetCollider();
+	const RectF rect = GetRect();
 	if( rect.left < walls.left )
 	{
 		pos.x += walls.left - rect.left;
