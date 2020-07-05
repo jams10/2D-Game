@@ -39,10 +39,10 @@ bool Ball::DoWallCollision( const RectF& walls )
 		pos.y += walls.top - rect.top;
 		ReboundY();
 		collided = true;
-	}
+	} 
 	else if( rect.bottom > walls.bottom )
 	{
-		pos.y -= rect.bottom - rect.bottom;
+		pos.y -= rect.bottom - walls.bottom;
 		ReboundY();
 		collided = true;
 	}
