@@ -13,6 +13,7 @@ public:
 	bool IsOverlappingWith( const RectF& other ) const;
 	/* Collider */
 	static RectF FromCenter( const Vec2& center, float halfWidth, float halfHeight );
+	RectF GetExpanded( float offset )const;
 public:
 	float left;
 	float right;
