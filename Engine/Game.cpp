@@ -64,13 +64,37 @@ void Game::UpdateModel()
 
 	ball.Update( dt );
 
-	for( Brick& b : bricks )
+	bool collisionHappened = false;
+	float curColDistSq;
+	int curColIdx;
+
+	for( int i=0; i<nBricks; i++ )
 	{
-		if( b.DoBallCollision( ball ) )
+		if( bricks[i].CheckBallCollision( ball ) )
 		{
-			soundBrick.Play();
-			break; // if a block is collided, break!
-		}          // do not check all collision per frame.
+			const float newColDistSq = (ball.GetPosition() - bricks[i].GetCenter()).GetLengthSq();
+
+			if( collisionHappened )
+			{
+				if( newColDistSq < curColDistSq )
+				{
+					curColDistSq = newColDistSq;
+					curColIdx = i;
+				}
+			}
+			else
+			{
+				curColDistSq = newColDistSq;
+				curColIdx = i;
+				collisionHappened = true;
+			}
+		}
+	}
+
+	if( collisionHappened )
+	{
+		bricks[curColIdx].ExecuteBallCollision( ball );
+		soundBrick.Play();
 	}
 
 	if( pad.DoBallCollision( ball ) )
