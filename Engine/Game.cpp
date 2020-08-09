@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	ball( Vec2( 300.0f + 16.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
+	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
 	walls( 0.0f, float( gfx.ScreenWidth ), 0.0f, float( gfx.ScreenHeight ) ),
 	soundPad( L"Sounds\\arkpad.wav" ),
 	soundBrick( L"Sounds\\arkbrick.wav" ),
@@ -41,12 +41,7 @@ Game::Game( MainWindow& wnd )
 		const Color c = colors[y];
 		for( int x = 0; x < nBricksAcross; x++ )
 		{
-			if( x == 3 && y == 3 )
-			{
-				bricks[i] = Brick( RectF( 
-					topLeft + Vec2( x * brickWidth, y * brickHeight ),
-					brickWidth, brickHeight ), c );
-			}
+			bricks[i] = Brick( RectF( topLeft + Vec2( x * brickWidth, y * brickHeight ), brickWidth, brickHeight ), c);
 			i++;
 		}
 	}
@@ -75,12 +70,10 @@ void Game::UpdateModel()
 
 	for( int i=0; i<nBricks; i++ )
 	{
-		if( bricks[i].CheckBallCollision( ball ) ) // 모든 블록들에 대해 collision 체크를 수행
+		if( bricks[i].CheckBallCollision( ball ) )
 		{
-			// ball 과 블록의 거리를 구하고
 			const float newColDistSq = (ball.GetPosition() - bricks[i].GetCenter()).GetLengthSq();
 
-			// ball과의 거리가 가장 짧은 블록을 구함(ball이 블록들 사이에 충돌 했을 때 이를 처리하기 위함)
 			if( collisionHappened )
 			{
 				if( newColDistSq < curColDistSq )
@@ -98,7 +91,7 @@ void Game::UpdateModel()
 		}
 	}
 
-	if( collisionHappened ) // collision 발생 시 collision 후의 작업 수행
+	if( collisionHappened )
 	{
 		bricks[curColIdx].ExecuteBallCollision( ball );
 		soundBrick.Play();
