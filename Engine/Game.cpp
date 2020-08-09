@@ -49,15 +49,22 @@ Game::Game( MainWindow& wnd )
 
 void Game::Go()
 {
-	gfx.BeginFrame();	
-	UpdateModel();
+	gfx.BeginFrame();
+	// 한번에 60ms 만큼 업데이트 하는 것이 아닌 60ms 시간을 쪼개 2.5ms 만큼의 시간을 계속 소비하여 업데이트.
+	// 이를 통해 시뮬레이션이 좀더 많이 update 됨. (같은 시간 동안 simulation 횟수 증가)
+	float elapsedTime = ft.Mark(); 
+	while( elapsedTime > 0.0f )
+	{
+		const float dt = std::min( 0.0025f, elapsedTime ); // dt가 2.5ms를 넘지 않도록 설정.
+		UpdateModel( dt );
+		elapsedTime -= dt;
+	}
 	ComposeFrame();
 	gfx.EndFrame();
 }
 
-void Game::UpdateModel()
+void Game::UpdateModel( float dt )
 {
-	const float dt = ft.Mark();
 
 	pad.Update( wnd.kbd, dt );
 	pad.DoWallCollision( walls );
@@ -93,6 +100,7 @@ void Game::UpdateModel()
 
 	if( collisionHappened )
 	{
+		pad.ResetCoolDown();
 		bricks[curColIdx].ExecuteBallCollision( ball );
 		soundBrick.Play();
 	}
@@ -104,6 +112,7 @@ void Game::UpdateModel()
 
 	if( ball.DoWallCollision( walls ) )
 	{
+		pad.ResetCoolDown();
 		soundPad.Play();
 	}
 }
