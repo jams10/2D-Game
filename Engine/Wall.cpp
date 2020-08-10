@@ -16,10 +16,10 @@ RectF Wall::GetRect() const
 
 void Wall::Draw(Graphics& gfx)
 {
-	for (int y = rect.top - offset; y < rect.bottom + offset; y++)
+	for (int y = rect.top - offset; y <= rect.bottom + offset; y++)
 	{
 		assert(y >= 0 && y < gfx.ScreenHeight);
-		for (int x = rect.left - offset; x < rect.right + offset; x++)
+		for (int x = rect.left - offset; x <= rect.right + offset; x++)
 		{
 			if (y <= rect.top || x <= rect.left || y >= rect.bottom || x >= rect.right)
 			{
