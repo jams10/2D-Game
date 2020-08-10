@@ -11,3 +11,12 @@ made with framework by [chilitomatonoodle](https://www.youtube.com/channel/UCsyH
 ![깃 revert](https://user-images.githubusercontent.com/52204522/89728697-3479af80-da6a-11ea-8f94-8d8de5574594.png)
     -> 버그를 수정한 내역을 커밋한 뒤에, commit history 상에서 Bug test 코드 작성 commit에 대해 revert.
 
+### 3) Visual studio 사이드 스크롤바에 코드 표시
+https://docs.microsoft.com/ko-kr/visualstudio/ide/how-to-track-your-code-by-customizing-the-scrollbar?view=vs-2019
+
+### 4) 코드 수정시 함수들이 너무 길게 늘어져 있을 때 한 번에 닫기
+
+CTRL + M + O
+
+https://stackoverflow.com/questions/982677/command-to-collapse-all-sections-of-code
+
