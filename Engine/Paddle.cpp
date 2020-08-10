@@ -47,16 +47,16 @@ bool Paddle::DoBallCollision( Ball& ball )
 	return false;
 }
 
-void Paddle::DoWallCollision( const RectF& walls )
+void Paddle::DoWallCollision( const Wall& wall )
 {
 	const RectF rect = GetRect();
-	if( rect.left < walls.left )
+	if( rect.left < wall.GetRect().left )
 	{
-		pos.x += walls.left - rect.left;
+		pos.x += wall.GetRect().left - rect.left;
 	}
-	else if( rect.right > walls.right )
+	else if( rect.right > wall.GetRect().right )
 	{
-		pos.x -= rect.right - walls.right;
+		pos.x -= rect.right - wall.GetRect().right;
 	}
 }
 
