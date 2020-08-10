@@ -66,7 +66,6 @@ void Game::Go()
 
 void Game::UpdateModel( float dt )
 {
-
 	pad.Update( wnd.kbd, dt );
 	pad.DoWallCollision( wall );
 
@@ -120,10 +119,17 @@ void Game::UpdateModel( float dt )
 
 void Game::ComposeFrame()
 {
-	if (ball.IsGameOver()) // GameOver 
+	if (!isGameStart)
 	{
-		SpriteCodex::DrawGameOver(Vec2(350.0f, 250.0f), gfx);
-		return;
+		SpriteCodex::DrawGameStart(Vec2(400.0f, 300.0f), gfx);
+		if (wnd.kbd.KeyIsPressed(VK_RETURN))
+		{
+			isGameStart = true;
+		}
+	}
+	else if (ball.IsGameOver()) // GameOver 
+	{
+		SpriteCodex::DrawGameOver(Vec2(400.0f, 300.0f), gfx);
 	}
 	else
 	{

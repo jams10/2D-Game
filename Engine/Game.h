@@ -63,5 +63,6 @@ private:
 	RectF walls;
 	Sound soundPad;
 	Sound soundBrick;
+	bool isGameStart = false;
 	/********************************/
 };
