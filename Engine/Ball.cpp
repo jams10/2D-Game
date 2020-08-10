@@ -45,8 +45,14 @@ bool Ball::DoWallCollision( const Wall& wall )
 		pos.y -= rect.bottom - wall.GetRect().bottom;
 		ReboundY();
 		collided = true;
+		isGameOver = true;
 	}
 	return collided;
+}
+
+bool Ball::IsGameOver()
+{
+	return isGameOver;
 }
 
 void Ball::ReboundX()

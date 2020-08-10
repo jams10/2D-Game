@@ -11,6 +11,7 @@ public:
 	void Draw( Graphics& gfx )const;
 	void Update( float dt );
 	bool DoWallCollision( const Wall& wall );
+	bool IsGameOver();
 	void ReboundX();
 	void ReboundY();
 	RectF GetRect() const; // Collider
@@ -20,4 +21,5 @@ private:
 	static constexpr float radius = 7.0f;
 	Vec2 pos;
 	Vec2 vel;
+	bool isGameOver = false;
 };

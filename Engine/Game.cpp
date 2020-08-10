@@ -120,11 +120,19 @@ void Game::UpdateModel( float dt )
 
 void Game::ComposeFrame()
 {
-	wall.Draw( gfx );
-	ball.Draw( gfx );
-	for( const Brick& b : bricks ) // range-based for loop (loop through every elements)
-	{                              // const-> not change values / &-> not copy values
-		b.Draw( gfx );
+	if (ball.IsGameOver()) // GameOver 
+	{
+		SpriteCodex::DrawGameOver(Vec2(350.0f, 250.0f), gfx);
+		return;
 	}
-	pad.Draw( gfx );
+	else
+	{
+		wall.Draw(gfx);
+		ball.Draw(gfx);
+		for (const Brick& b : bricks) // range-based for loop (loop through every elements)
+		{                              // const-> not change values / &-> not copy values
+			b.Draw(gfx);
+		}
+		pad.Draw(gfx);
+	}
 }
