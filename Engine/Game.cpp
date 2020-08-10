@@ -23,6 +23,7 @@
 
 Game::Game( MainWindow& wnd )
 	:
+	wall(RectF(30.0f, float(gfx.ScreenWidth - 30.0f), 30.0f, float(gfx.ScreenHeight - 30.0f)), 5.0f, Colors::Gray),
 	wnd( wnd ),
 	gfx( wnd ),
 	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
@@ -67,7 +68,7 @@ void Game::UpdateModel( float dt )
 {
 
 	pad.Update( wnd.kbd, dt );
-	pad.DoWallCollision( walls );
+	pad.DoWallCollision( wall );
 
 	ball.Update( dt );
 
@@ -110,7 +111,7 @@ void Game::UpdateModel( float dt )
 		soundPad.Play();
 	}
 
-	if( ball.DoWallCollision( walls ) )
+	if( ball.DoWallCollision( wall ) )
 	{
 		pad.ResetCoolDown();
 		soundPad.Play();
@@ -119,6 +120,7 @@ void Game::UpdateModel( float dt )
 
 void Game::ComposeFrame()
 {
+	wall.Draw( gfx );
 	ball.Draw( gfx );
 	for( const Brick& b : bricks ) // range-based for loop (loop through every elements)
 	{                              // const-> not change values / &-> not copy values
