@@ -29,6 +29,7 @@
 #include "Brick.h"
 #include "Paddle.h"
 #include "Wall.h"
+#include "SpriteCodex.h"
 
 class Game
 {
@@ -62,5 +63,6 @@ private:
 	RectF walls;
 	Sound soundPad;
 	Sound soundBrick;
+	bool isGameStart = false;
 	/********************************/
 };

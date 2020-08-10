@@ -66,7 +66,6 @@ void Game::Go()
 
 void Game::UpdateModel( float dt )
 {
-
 	pad.Update( wnd.kbd, dt );
 	pad.DoWallCollision( wall );
 
@@ -120,11 +119,26 @@ void Game::UpdateModel( float dt )
 
 void Game::ComposeFrame()
 {
-	wall.Draw( gfx );
-	ball.Draw( gfx );
-	for( const Brick& b : bricks ) // range-based for loop (loop through every elements)
-	{                              // const-> not change values / &-> not copy values
-		b.Draw( gfx );
+	if (!isGameStart)
+	{
+		SpriteCodex::DrawGameStart(Vec2(400.0f, 300.0f), gfx);
+		if (wnd.kbd.KeyIsPressed(VK_RETURN))
+		{
+			isGameStart = true;
+		}
 	}
-	pad.Draw( gfx );
+	else if (ball.IsGameOver()) // GameOver 
+	{
+		SpriteCodex::DrawGameOver(Vec2(400.0f, 300.0f), gfx);
+	}
+	else
+	{
+		wall.Draw(gfx);
+		ball.Draw(gfx);
+		for (const Brick& b : bricks) // range-based for loop (loop through every elements)
+		{                              // const-> not change values / &-> not copy values
+			b.Draw(gfx);
+		}
+		pad.Draw(gfx);
+	}
 }
