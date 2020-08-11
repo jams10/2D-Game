@@ -10,4 +10,5 @@ public:
 	static void DrawBall( const Vec2& center,Graphics& gfx );
 	static void DrawGameOver(const Vec2& center, Graphics& gfx);
 	static void DrawGameStart(const Vec2& center, Graphics& gfx);
+	static void DrawFace(const Vec2& center, Graphics& gfx);
 };

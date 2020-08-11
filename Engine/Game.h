@@ -66,5 +66,6 @@ private:
 	Sound soundPad;
 	Sound soundBrick;
 	bool isGameStart = false;
+	bool isGameWin = true;
 	/********************************/
 };
