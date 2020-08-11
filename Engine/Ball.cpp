@@ -18,7 +18,7 @@ void Ball::Update( float dt )
 	pos += vel * dt;
 }
 
-bool Ball::DoWallCollision( const Wall& wall )
+bool Ball::DoWallCollision( const Wall& wall, Life& life)
 {
 	bool collided = false;
 	const RectF rect = GetRect();
@@ -45,14 +45,9 @@ bool Ball::DoWallCollision( const Wall& wall )
 		pos.y -= rect.bottom - wall.GetRect().bottom;
 		ReboundY();
 		collided = true;
-		isGameOver = true;
+		life.DecreaseLife();
 	}
 	return collided;
-}
-
-bool Ball::IsGameOver()
-{
-	return isGameOver;
 }
 
 void Ball::ReboundX()
