@@ -29,6 +29,7 @@
 #include "Brick.h"
 #include "Paddle.h"
 #include "Wall.h"
+#include "Life.h"
 #include "SpriteCodex.h"
 
 class Game
@@ -56,6 +57,7 @@ private:
 	static constexpr int nBricks = nBricksAcross * nBricksDown;
 
 	Wall wall;
+	Life life;
 	FrameTimer ft;
 	Ball ball;
 	Brick bricks[nBricks];

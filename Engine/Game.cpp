@@ -24,6 +24,7 @@
 Game::Game( MainWindow& wnd )
 	:
 	wall(RectF(30.0f, float(gfx.ScreenWidth - 30.0f), 30.0f, float(gfx.ScreenHeight - 30.0f)), 5.0f, Colors::Gray),
+	life(Vec2(10.0f,10.0f),5,3,Colors::Green),
 	wnd( wnd ),
 	gfx( wnd ),
 	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
@@ -110,7 +111,7 @@ void Game::UpdateModel( float dt )
 		soundPad.Play();
 	}
 
-	if( ball.DoWallCollision( wall ) )
+	if( ball.DoWallCollision( wall, life) )
 	{
 		pad.ResetCoolDown();
 		soundPad.Play();
@@ -127,12 +128,13 @@ void Game::ComposeFrame()
 			isGameStart = true;
 		}
 	}
-	else if (ball.IsGameOver()) // GameOver 
+	else if (life.isGameOver()) // GameOver 
 	{
 		SpriteCodex::DrawGameOver(Vec2(400.0f, 300.0f), gfx);
 	}
 	else
 	{
+		life.Draw(gfx);
 		wall.Draw(gfx);
 		ball.Draw(gfx);
 		for (const Brick& b : bricks) // range-based for loop (loop through every elements)
