@@ -24,7 +24,7 @@
 Game::Game( MainWindow& wnd )
 	:
 	wall(RectF(30.0f, float(gfx.ScreenWidth - 30.0f), 30.0f, float(gfx.ScreenHeight - 30.0f)), 5.0f, Colors::Gray),
-	life(Vec2(10.0f,10.0f),5,3,Colors::Green),
+	life(Vec2(10.0f,10.0f), 5 , 60 , Colors::Green),
 	wnd( wnd ),
 	gfx( wnd ),
 	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
@@ -116,6 +116,19 @@ void Game::UpdateModel( float dt )
 		pad.ResetCoolDown();
 		soundPad.Play();
 	}
+
+	for (int i = 0; i < nBricks; i++)
+	{
+		if (!bricks[i].isDestroyed())
+		{
+			isGameWin = false;
+			break;
+		}
+		if (i == nBricks - 1 && bricks[i].isDestroyed())
+		{
+			isGameWin = true;
+		}
+	}
 }
 
 void Game::ComposeFrame()
@@ -131,6 +144,10 @@ void Game::ComposeFrame()
 	else if (life.isGameOver()) // GameOver 
 	{
 		SpriteCodex::DrawGameOver(Vec2(400.0f, 300.0f), gfx);
+	}
+	else if (isGameWin)
+	{
+		SpriteCodex::DrawFace(Vec2(400.0f, 300.0f), gfx);
 	}
 	else
 	{
