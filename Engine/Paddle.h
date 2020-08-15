@@ -23,6 +23,9 @@ private:
 	Color wingColor = Colors::Red;
 	Color color = Colors::White;
 	float speed = 300.0f;
+	float exitXFactor = 0.045f; // ball 충돌시 direction 값 설정을 위한 scale factor
+	float fixedZoneHalfWidth = 15.0f; // ball 가운데 충돌시 수직으로 튕겨져 나가는 것을 방지하기 위한 값.
+	                                  // 가운데 충돌할 경우 ball과 paddle의 x 위치가 같으므로 수직으로 튕김. 따라서 대신 이 값을 사용.
 	float halfWidth;
 	float halfHeight;
 	Vec2 pos;

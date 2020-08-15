@@ -31,7 +31,26 @@ bool Paddle::DoBallCollision( Ball& ball )
 			if( std::signbit( ball.GetVelocity().x ) == std::signbit( (ballPos - pos).x ) 
 				|| (ballPos.x >= rect.left && ballPos.y <= rect.right) )
 			{
-				ball.ReboundY();
+				Vec2 dir;
+				const float xDifference = ballPos.x - pos.x;
+				const float fixedXComponent = fixedZoneHalfWidth * exitXFactor;
+
+				if( std::abs( xDifference ) < fixedZoneHalfWidth ) // 설정한 x 값 범위에 들어올 경우 고정된 각도로 튕겨져 나감.
+				{
+					if( xDifference < 0.0f )
+					{
+						dir = Vec2( -fixedXComponent, -1.0f );
+					}
+					else
+					{
+						dir = Vec2( fixedXComponent, -1.0f );
+					}
+				}
+				else
+				{
+					dir = Vec2( xDifference * exitXFactor, -1.0f );
+				}
+				ball.SetDirection( dir );
 			}
 			else if( ballPos.x >= rect.left && ballPos.x <= rect.right )
 			{
