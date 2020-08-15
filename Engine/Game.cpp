@@ -27,7 +27,7 @@ Game::Game( MainWindow& wnd )
 	life(Vec2(10.0f,10.0f), 5 , 60 , Colors::Green),
 	wnd( wnd ),
 	gfx( wnd ),
-	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -300.0f, -300.0f ) ),
+	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -1.0f, -1.0f ) ),
 	walls( 0.0f, float( gfx.ScreenWidth ), 0.0f, float( gfx.ScreenHeight ) ),
 	soundPad( L"Sounds\\arkpad.wav" ),
 	soundBrick( L"Sounds\\arkbrick.wav" ),

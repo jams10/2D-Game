@@ -28,7 +28,8 @@ bool Paddle::DoBallCollision( Ball& ball )
 			const Vec2 ballPos = ball.GetPosition();
 
 			// signbit : 매개변수가 음의 값이면 true 리턴.(cmath include 필요.)
-			if( std::signbit( ball.GetVelocity().x ) == std::signbit( (ballPos - pos).x ) )
+			if( std::signbit( ball.GetVelocity().x ) == std::signbit( (ballPos - pos).x ) 
+				|| (ballPos.x >= rect.left && ballPos.y <= rect.right) )
 			{
 				ball.ReboundY();
 			}
