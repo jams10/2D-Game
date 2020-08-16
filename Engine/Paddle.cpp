@@ -5,7 +5,10 @@ Paddle::Paddle( const Vec2& pos_in, float halfWidth_in, float halfHeight_in )
 	:
 	pos(pos_in),
 	halfWidth( halfWidth_in ),
-	halfHeight( halfHeight_in )
+	halfHeight( halfHeight_in ),
+	exitXFactor( maximumExitRatio / halfWidth ),
+	fixedZoneHalfWidth( halfWidth * fixedZoneWidthRatio ),
+	fixedZoneExitX( fixedZoneHalfWidth * exitXFactor )
 {
 }
 
@@ -37,13 +40,13 @@ bool Paddle::DoBallCollision( Ball& ball )
 
 				if( std::abs( xDifference ) < fixedZoneHalfWidth ) // 설정한 x 값 범위에 들어올 경우 고정된 각도로 튕겨져 나감.
 				{
-					if( xDifference < 0.0f )
+					if( xDifference < 0.0f ) // paddle 기준 왼쪽에서 접근
 					{
-						dir = Vec2( -fixedXComponent, -1.0f );
+						dir = Vec2( -fixedZoneExitX, -1.0f );
 					}
-					else
+					else // paddle 기준 오른쪽에서 접근
 					{
-						dir = Vec2( fixedXComponent, -1.0f );
+						dir = Vec2( fixedZoneExitX, -1.0f );
 					}
 				}
 				else
