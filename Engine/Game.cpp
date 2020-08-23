@@ -24,7 +24,7 @@
 Game::Game( MainWindow& wnd )
 	:
 	wall(RectF(30.0f, float(gfx.ScreenWidth - 30.0f), 30.0f, float(gfx.ScreenHeight - 30.0f)), 5.0f, Colors::Gray),
-	life(Vec2(10.0f,10.0f), 5 , 60 , Colors::Green),
+	life(Vec2(10.0f,10.0f), 5 , 5 , Colors::Green),
 	wnd( wnd ),
 	gfx( wnd ),
 	ball( Vec2( 300.0f + 24.0f, 300.0f ), Vec2( -1.0f, -1.0f ) ),
@@ -55,7 +55,8 @@ void Game::Go()
 	// 한번에 60ms 만큼 업데이트 하는 것이 아닌 60ms 시간을 쪼개 2.5ms 만큼의 시간을 계속 소비하여 업데이트.
 	// 이를 통해 시뮬레이션이 좀더 많이 update 됨. (같은 시간 동안 simulation 횟수 증가)
 	float elapsedTime = ft.Mark(); 
-	while( elapsedTime > 0.0f )
+	while( elapsedTime > 0.0f && isGameStart && 
+		life.isGameOver() == false && isGameWin == false)
 	{
 		const float dt = std::min( 0.0025f, elapsedTime ); // dt가 2.5ms를 넘지 않도록 설정.
 		UpdateModel( dt );
