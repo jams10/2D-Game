@@ -2,6 +2,8 @@
 
 #### Engine : 프레임워크를 사용해 제작한 게임 (사용 프레임워크 : [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA) )
 
+#### Console : 명령어 콘솔창을 이용해 제작한 프로젝트
+
 ## Tips
 
 ### 1) 작성한 코드가 맞는지 테스트할 용도로 테스트 코드를 작성하게 될 경우, 테스트를 한 뒤 코드를 ctrl+z로 하나씩 지워야 함.
