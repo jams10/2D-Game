@@ -4,6 +4,8 @@
 
 콘솔창을 이용한 간단한 바둑 게임 프로젝트 입니다.
 
+Tromp-Taylor 규칙을 적용해 제작하였습니다.
+
 ## 참고
 
 [Flood-Fill Algorithm](https://www.geeksforgeeks.org/flood-fill-algorithm-implement-fill-paint/)
