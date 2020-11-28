@@ -1,6 +1,6 @@
 # 2D-Game
 
-### Engine : 프레임워크를 사용해 제작한 게임 [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA)
+#### Engine : 프레임워크를 사용해 제작한 게임 (사용 프레임워크 : [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA) )
 
 ## Tips
 
