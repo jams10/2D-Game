@@ -8,8 +8,8 @@ Tromp-Taylor 규칙을 적용해 제작하였습니다.
 
 ## 참고
 
-[Flood-Fill Algorithm](https://www.geeksforgeeks.org/flood-fill-algorithm-implement-fill-paint/)
+### [Tromp-Taylor Rules](http://webdocs.cs.ualberta.ca/~hayward/396/hoven/tromptaylor.pdf) : 기본 바둑 규칙
 
-[Tromp-Taylor Rules](http://webdocs.cs.ualberta.ca/~hayward/396/hoven/tromptaylor.pdf)
+### [Flood-Fill Algorithm](https://www.geeksforgeeks.org/flood-fill-algorithm-implement-fill-paint/) : 포위 바둑알 제거
 
-[Implementing Example](https://www.moderndescartes.com/essays/implementing_go/)
+### [Implementing Example](https://www.moderndescartes.com/essays/implementing_go/) : 구현 간단 예시
