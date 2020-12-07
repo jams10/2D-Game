@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/52204522/100518388-92c2cd80-31d4-11eb-81d2-5deeeffbc980.png)
 
-콘솔창을 이용한 간단한 바둑 게임 프로젝트 입니다.
+명령어 콘솔창을 이용한 간단한 바둑 게임 프로젝트 입니다.
 
 Tromp-Taylor 규칙을 적용해 제작하였습니다.
 
