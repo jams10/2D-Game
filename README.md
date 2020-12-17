@@ -1,8 +1,6 @@
-# 2D-Game
+# Arkanoid
 
 #### [Engine](https://github.com/jams10/2D-Game/tree/master/Engine) : 프레임워크를 사용해 제작한 게임 (사용 프레임워크 : [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA) )
-
-#### [Console](https://github.com/jams10/2D-Game/tree/master/Console) : 명령어 콘솔창을 이용해 제작한 프로젝트.
 
 ## Tips
 
