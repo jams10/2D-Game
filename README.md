@@ -1,5 +1,7 @@
 # Arkanoid
 
+![image](https://user-images.githubusercontent.com/52204522/102506087-1a11ab80-40c6-11eb-8998-c01d17d17895.png)
+
 #### [Engine](https://github.com/jams10/2D-Game/tree/master/Engine) : 프레임워크를 사용해 제작한 게임 (사용 프레임워크 : [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA) )
 
 ## Tips
