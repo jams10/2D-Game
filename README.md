@@ -4,7 +4,7 @@
 
 #### Chili 프레임워크를 사용해 제작한 게임 (사용 프레임워크 : [chilitomatonoodle](https://www.youtube.com/channel/UCsyHonfwHi4fLb2lkq0DEAA) )
 
-#### ChiliTomatoNoodle 
+#### ChiliTomatoNoodle C++ 실습 프로젝트
 
 ## Tips
 
